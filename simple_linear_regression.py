@@ -1,27 +1,33 @@
-import numpy as np 
-import matplotlib.pyplot as plt 
-from sklearn.linear_model import LinearRegression 
+#!/usr/bin/env python3
 
-# Generate some example data
-# X: feature (independent variable), y: target (dependent variable)
-X = np.array([[1], [2], [3], [4], [5]])
-y = np.array([1, 2, 1.3, 3.75, 2.25])
+import numpy as np
+import matplotlib.pyplot as plt
+from sklearn.linear_model import LinearRegression
 
-# Create and train the model
-model = LinearRegression()
-model.fit(X, y)
+def main():
+    # Generate some example data
+    # X: feature (independent variable), y: target (dependent variable)
+    X = np.array([[1], [2], [3], [4], [5]])
+    y = np.array([1, 2, 1.3, 3.75, 2.25])
 
-# Make predictions
-y_pred = model.predict(X)
+    # Create and train the model
+    model = LinearRegression()
+    model.fit(X, y)
 
-# Plot the results
-plt.scatter(X, y, color='blue', label='Original data')
-plt.plot(X, y_pred, color='red', label='Fitted line')
-plt.xlabel('X')
-plt.ylabel('y')
-plt.legend()
-plt.show()
+    # Make predictions
+    y_pred = model.predict(X)
 
-# Print model parameters
-print(f'Coefficient: {model.coef_[0]}')
-print(f'Intercept: {model.intercept_}')
+    # Plot the results
+    plt.scatter(X, y, color='blue', label='Original data')
+    plt.plot(X, y_pred, color='red', label='Fitted line')
+    plt.xlabel('X')
+    plt.ylabel('y')
+    plt.legend()
+    plt.show()
+
+    # Print model parameters
+    print(f'Coefficient: {model.coef_[0]}')
+    print(f'Intercept: {model.intercept_}')
+
+if __name__ == "__main__":
+    main()
